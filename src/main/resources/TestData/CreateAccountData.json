@@ -1,0 +1,16 @@
+{
+  "singUpName" : "Jan",
+  "singUpEmail" : "jan123@gmail.com",
+  "password" : "1qaz@WSX",
+  "days" : "15",
+  "months" : "5",
+  "years" : "1992",
+  "firstName" : "Jan",
+  "lastName" : "Nowak",
+  "addressFirstLine": "69 E. Wagon Street",
+  "country" : "United States",
+  "state" : "California",
+  "city" : "Ontario",
+  "zipcode" : "CA 91762",
+  "mobileNumber" : "505505505"
+}
