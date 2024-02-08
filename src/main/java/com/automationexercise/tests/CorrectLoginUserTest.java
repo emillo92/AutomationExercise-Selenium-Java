@@ -52,7 +52,7 @@ public class CorrectLoginUserTest extends SetupBrowser {
 
     public void verifyThatLoggedIsAsUsernameIsVisible() throws IOException, ParseException {
         boolean visibleLoggedInAsUserNameTxt = new SignUpLoginPage(driver)
-                .fillLogin()
+                .fillLoginCorrectData()
                 .loggedInAsTxt()
                 .isDisplayed();
         Assert.assertTrue(visibleLoggedInAsUserNameTxt);

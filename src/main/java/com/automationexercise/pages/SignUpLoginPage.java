@@ -41,12 +41,19 @@ public class SignUpLoginPage {
     @FindBy(xpath = "//button[@data-qa='login-button']")
     private WebElement loginBtn;
 
+    @FindBy(xpath = "//p[contains(text(),'Your email or password is incorrect!')]")
+    private WebElement errorIncorrectLoginData;
+
     public WebElement newUserSingUpLabelIsVisible() {
         return newUserSignUpLabel;
     }
 
     public WebElement getLoginLabel() {
         return loginLabel;
+    }
+
+    public WebElement getErrorIncorrectLoginData() {
+        return errorIncorrectLoginData;
     }
 
     public EnterAccountInformationPage fillSignUp() throws IOException, ParseException {
@@ -56,10 +63,17 @@ public class SignUpLoginPage {
         return new EnterAccountInformationPage(driver);
     }
 
-    public HomePage fillLogin() throws IOException, ParseException {
+    public HomePage fillLoginCorrectData() throws IOException, ParseException {
         loginEmailInput.sendKeys(JSONDataReader.loginData("correctEmail"));
         loginPasswordInput.sendKeys(JSONDataReader.loginData("correctPassword"));
         loginBtn.click();
         return new HomePage(driver);
+    }
+
+    public SignUpLoginPage fillLoginIncorrectData() throws IOException, ParseException {
+        loginEmailInput.sendKeys(JSONDataReader.loginData("incorrectEmail"));
+        loginPasswordInput.sendKeys(JSONDataReader.loginData("incorrectPassword"));
+        loginBtn.click();
+        return new SignUpLoginPage(driver);
     }
 }
