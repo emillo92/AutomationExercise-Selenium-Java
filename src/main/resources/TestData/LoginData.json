@@ -1,0 +1,6 @@
+{
+  "correctEmail" : "test1234@test.pl",
+  "correctPassword" : "1qaz@WSX",
+  "incorrectEmail" : "test1234qqq@test.pl",
+  "incorrectPassword" : "abcd123"
+}

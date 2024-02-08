@@ -16,4 +16,12 @@ public class JSONDataReader {
         JSONObject createAccountData = (JSONObject) obj;
         return (String)createAccountData.get(data);
     }
+
+    public static String loginData(String data) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader fileReader = new FileReader("src/main/resources/TestData/LoginData.json");
+        Object obj = jsonParser.parse(fileReader);
+        JSONObject loginData = (JSONObject) obj;
+        return (String)loginData.get(data);
+    }
 }

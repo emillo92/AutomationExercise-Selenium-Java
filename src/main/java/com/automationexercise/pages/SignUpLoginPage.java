@@ -29,8 +29,24 @@ public class SignUpLoginPage {
     @FindBy(xpath = "//button[contains(text(),'Signup')]")
     private WebElement singUpBtn;
 
+    @FindBy(xpath = "//h2[contains(text(),'Login to your account')]")
+    private WebElement loginLabel;
+
+    @FindBy(xpath = "//input[@data-qa='login-email']")
+    private WebElement loginEmailInput;
+
+    @FindBy(xpath = "//input[@data-qa='login-password']")
+    private WebElement loginPasswordInput;
+
+    @FindBy(xpath = "//button[@data-qa='login-button']")
+    private WebElement loginBtn;
+
     public WebElement newUserSingUpLabelIsVisible() {
         return newUserSignUpLabel;
+    }
+
+    public WebElement getLoginLabel() {
+        return loginLabel;
     }
 
     public EnterAccountInformationPage fillSignUp() throws IOException, ParseException {
@@ -40,4 +56,10 @@ public class SignUpLoginPage {
         return new EnterAccountInformationPage(driver);
     }
 
+    public HomePage fillLogin() throws IOException, ParseException {
+        loginEmailInput.sendKeys(JSONDataReader.loginData("correctEmail"));
+        loginPasswordInput.sendKeys(JSONDataReader.loginData("correctPassword"));
+        loginBtn.click();
+        return new HomePage(driver);
+    }
 }
