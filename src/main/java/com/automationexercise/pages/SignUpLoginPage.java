@@ -44,6 +44,9 @@ public class SignUpLoginPage {
     @FindBy(xpath = "//p[contains(text(),'Your email or password is incorrect!')]")
     private WebElement errorIncorrectLoginData;
 
+    @FindBy(xpath = "//p[contains(text(),'Email Address already exist!')]")
+    private WebElement errorEmailAddressAlreadyExist;
+
     public WebElement newUserSingUpLabelIsVisible() {
         return newUserSignUpLabel;
     }
@@ -56,11 +59,22 @@ public class SignUpLoginPage {
         return errorIncorrectLoginData;
     }
 
+    public WebElement getErrorEmailAddressAlreadyExist() {
+        return errorEmailAddressAlreadyExist;
+    }
+
     public EnterAccountInformationPage fillSignUp() throws IOException, ParseException {
         singUpName.sendKeys(JSONDataReader.createAccountData("singUpName"));
         singUpEmail.sendKeys(JSONDataReader.createAccountData("singUpEmail"));
         singUpBtn.click();
         return new EnterAccountInformationPage(driver);
+    }
+
+    public SignUpLoginPage fillSignUpWithExistingUserLoginData() throws IOException, ParseException {
+        singUpName.sendKeys(JSONDataReader.loginData("existingUserName"));
+        singUpEmail.sendKeys(JSONDataReader.loginData("existingUserEmail"));
+        singUpBtn.click();
+        return new SignUpLoginPage(driver);
     }
 
     public HomePage fillLoginCorrectData() throws IOException, ParseException {
@@ -78,8 +92,8 @@ public class SignUpLoginPage {
     }
 
     public HomePage fillLoginForAnotherAccount() throws IOException, ParseException {
-        loginEmailInput.sendKeys(JSONDataReader.loginData("correctEmail2"));
-        loginPasswordInput.sendKeys(JSONDataReader.loginData("correctPassword2"));
+        loginEmailInput.sendKeys(JSONDataReader.loginData("existingUserEmail"));
+        loginPasswordInput.sendKeys(JSONDataReader.loginData("existingUserPassword"));
         loginBtn.click();
         return new HomePage(driver);
     }

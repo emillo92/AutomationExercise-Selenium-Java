@@ -3,6 +3,7 @@
   "correctPassword" : "1qaz@WSX",
   "incorrectEmail" : "test1234qqq@test.pl",
   "incorrectPassword" : "abcd123",
-  "correctEmail2" : "johnny123@gmail.com",
-  "correctPassword2" : "!QAZ@WSX"
+  "existingUserName" : "Johnny",
+  "existingUserEmail" : "johnny123@gmail.com",
+  "existingUserPassword" : "!QAZ@WSX"
 }
