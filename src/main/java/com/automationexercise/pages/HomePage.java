@@ -29,6 +29,9 @@ public class HomePage {
     @FindBy(xpath = "//a[@href='/logout']")
     private WebElement logoutBtn;
 
+    @FindBy(xpath = "//a[@href='/contact_us']")
+    private WebElement contactUsMenuBtn;
+
     public WebElement homePageIsVisible() {
         return slider;
     }
@@ -50,5 +53,10 @@ public class HomePage {
     public SignUpLoginPage logoutBtnClick() {
         logoutBtn.click();
         return new SignUpLoginPage(driver);
+    }
+
+    public ContactUsPage contactUsMenuBtnClick() {
+        contactUsMenuBtn.click();
+        return new ContactUsPage(driver);
     }
 }

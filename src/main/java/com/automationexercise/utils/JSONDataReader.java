@@ -24,4 +24,12 @@ public class JSONDataReader {
         JSONObject loginData = (JSONObject) obj;
         return (String)loginData.get(data);
     }
+
+    public static String contactFormData(String data) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader fileReader = new FileReader("src/main/resources/TestData/ContactFormData.json");
+        Object obj = jsonParser.parse(fileReader);
+        JSONObject contactFormData = (JSONObject) obj;
+        return (String)contactFormData.get(data);
+    }
 }
