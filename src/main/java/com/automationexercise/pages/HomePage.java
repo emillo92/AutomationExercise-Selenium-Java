@@ -26,6 +26,9 @@ public class HomePage {
     @FindBy(xpath = "//a[@href='/delete_account']")
     private WebElement deleteAccountMenuBtn;
 
+    @FindBy(xpath = "//a[@href='/logout']")
+    private WebElement logoutBtn;
+
     public WebElement homePageIsVisible() {
         return slider;
     }
@@ -42,5 +45,10 @@ public class HomePage {
     public AccountDeletePage deleteAccountBtnClick() {
         deleteAccountMenuBtn.click();
         return new AccountDeletePage(driver);
+    }
+
+    public SignUpLoginPage logoutBtnClick() {
+        logoutBtn.click();
+        return new SignUpLoginPage(driver);
     }
 }

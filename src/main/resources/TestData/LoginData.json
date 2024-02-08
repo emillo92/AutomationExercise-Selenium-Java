@@ -2,5 +2,7 @@
   "correctEmail" : "test1234@test.pl",
   "correctPassword" : "1qaz@WSX",
   "incorrectEmail" : "test1234qqq@test.pl",
-  "incorrectPassword" : "abcd123"
+  "incorrectPassword" : "abcd123",
+  "correctEmail2" : "johnny123@gmail.com",
+  "correctPassword2" : "!QAZ@WSX"
 }

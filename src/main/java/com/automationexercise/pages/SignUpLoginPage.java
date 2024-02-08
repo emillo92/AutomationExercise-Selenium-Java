@@ -76,4 +76,11 @@ public class SignUpLoginPage {
         loginBtn.click();
         return new SignUpLoginPage(driver);
     }
+
+    public HomePage fillLoginForAnotherAccount() throws IOException, ParseException {
+        loginEmailInput.sendKeys(JSONDataReader.loginData("correctEmail2"));
+        loginPasswordInput.sendKeys(JSONDataReader.loginData("correctPassword2"));
+        loginBtn.click();
+        return new HomePage(driver);
+    }
 }
