@@ -24,27 +24,12 @@ public class IncorrectLoginUserTest extends SetupBrowser {
 
     @Test(description = "Test Case 3: Login User with incorrect email and password")
     public void incorrectLoginUserTest() throws IOException, ParseException {
-        verifyThatHomePageIsVisibleSuccessfully();
-        verifyLoginToYourAccountIsVisible();
+        RegisterUserTest.verifyThatHomePageIsVisibleSuccessfully();
+        CorrectLoginUserTest.verifyLoginToYourAccountIsVisible();
         verifyErrorYourEmailOrPasswordIsIncorrectIsVisible();
     }
 
     /* Steps */
-
-    public void verifyThatHomePageIsVisibleSuccessfully() {
-        boolean visibleHomePage = new HomePage(driver)
-                .homePageIsVisible()
-                .isDisplayed();
-        Assert.assertTrue(visibleHomePage);
-    }
-
-    public void verifyLoginToYourAccountIsVisible() {
-        boolean visibleLoginToYourAccountTxt = new HomePage(driver)
-                .signUpButtonClick()
-                .getLoginLabel()
-                .isDisplayed();
-        Assert.assertTrue(visibleLoginToYourAccountTxt);
-    }
 
     public void verifyErrorYourEmailOrPasswordIsIncorrectIsVisible() throws IOException, ParseException {
         boolean errorIncorrectEmailOrPassword = new SignUpLoginPage(driver)

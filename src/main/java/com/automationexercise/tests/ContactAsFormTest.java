@@ -27,22 +27,13 @@ public class ContactAsFormTest extends SetupBrowser {
 
     @Test(description = "Test Case 6: Contact Us Form")
     public void contactUsFormTest() throws IOException, ParseException {
-        verifyThatHomePageIsVisibleSuccessfully();
+        RegisterUserTest.verifyThatHomePageIsVisibleSuccessfully();
         verifyGetInTouchIsVisible();
         verifySuccessMessageIsVisible();
         verifyThatLandedToHomePageSuccessfully();
     }
 
-    /*
-        Steps
-     */
-
-    public void verifyThatHomePageIsVisibleSuccessfully() {
-        boolean visibleHomePage = new HomePage(driver)
-                .homePageIsVisible()
-                .isDisplayed();
-        Assert.assertTrue(visibleHomePage);
-    }
+    /* Steps */
 
     public void verifyGetInTouchIsVisible() {
         boolean visibleGetInTouchText = new HomePage(driver)

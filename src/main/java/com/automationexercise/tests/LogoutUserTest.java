@@ -26,28 +26,13 @@ public class LogoutUserTest extends SetupBrowser {
 
     @Test(description = "Test Case 4: Logout User")
     public void logoutUserTest() throws IOException, ParseException {
-        verifyThatHomePageIsVisibleSuccessfully();
-        verifyLoginToYourAccountIsVisible();
+        RegisterUserTest.verifyThatHomePageIsVisibleSuccessfully();
+        CorrectLoginUserTest.verifyLoginToYourAccountIsVisible();
         verifyThatLoggedInAsUserNameIsVisible();
         verifyThatUserIsNavigatedToLoginPage();
     }
 
     /* Steps */
-
-    public void verifyThatHomePageIsVisibleSuccessfully() {
-        boolean visibleHomePage = new HomePage(driver)
-                .homePageIsVisible()
-                .isDisplayed();
-        Assert.assertTrue(visibleHomePage);
-    }
-
-    public void verifyLoginToYourAccountIsVisible() {
-        boolean visibleLoginToYourAccountTxt = new HomePage(driver)
-                .signUpButtonClick()
-                .getLoginLabel()
-                .isDisplayed();
-        Assert.assertTrue(visibleLoginToYourAccountTxt);
-    }
 
     public void verifyThatLoggedInAsUserNameIsVisible() throws IOException, ParseException {
         boolean loggedInAsUserName = new SignUpLoginPage(driver)

@@ -43,14 +43,14 @@ public class RegisterUserTest extends SetupBrowser {
 
     /* Steps */
 
-    public void verifyThatHomePageIsVisibleSuccessfully() {
+    public static void verifyThatHomePageIsVisibleSuccessfully() {
         boolean visibleHomePage = new HomePage(driver)
                 .homePageIsVisible()
                 .isDisplayed();
         Assert.assertTrue(visibleHomePage);
     }
 
-    public void verifyNewUserSignupIsVisible() {
+    public static void verifyNewUserSignupIsVisible() {
         boolean visibleNewUserSinUp = new HomePage(driver)
                 .signUpButtonClick()
                 .newUserSingUpLabelIsVisible()

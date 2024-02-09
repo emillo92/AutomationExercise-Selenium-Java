@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class SetupBrowser {
 
-    public WebDriver driver;
+    public static WebDriver driver;
 
     @BeforeMethod
     public void setup() throws IOException {

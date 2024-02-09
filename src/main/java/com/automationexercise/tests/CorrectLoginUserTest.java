@@ -27,7 +27,7 @@ public class CorrectLoginUserTest extends SetupBrowser {
 
     @Test(description = "Test Case 2: Login User with correct email and password")
     public void correctLoginUserTest() throws IOException, ParseException {
-        verifyThatHomePageIsVisibleSuccessfully();
+        RegisterUserTest.verifyThatHomePageIsVisibleSuccessfully();
         verifyLoginToYourAccountIsVisible();
         verifyThatLoggedIsAsUsernameIsVisible();
         verifyThatAccountDeletedIsVisible();
@@ -35,14 +35,7 @@ public class CorrectLoginUserTest extends SetupBrowser {
 
     /* Steps */
 
-    public void verifyThatHomePageIsVisibleSuccessfully() {
-        boolean visibleHomePage = new HomePage(driver)
-                .homePageIsVisible()
-                .isDisplayed();
-        Assert.assertTrue(visibleHomePage);
-    }
-
-    public void verifyLoginToYourAccountIsVisible() {
+    public static void verifyLoginToYourAccountIsVisible() {
         boolean visibleLoginToYourAccountTxt = new HomePage(driver)
                 .signUpButtonClick()
                 .getLoginLabel()

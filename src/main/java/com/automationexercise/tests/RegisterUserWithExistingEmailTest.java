@@ -24,25 +24,12 @@ public class RegisterUserWithExistingEmailTest extends SetupBrowser {
 
     @Test(description = "Test Case 5: Register User with existing email")
     public void registerUserWithExistingEmailTest() throws IOException, ParseException {
-        verifyThatHomePageIsVisibleSuccessfully();
-        verifyNewUserSignupIsVisible();
+        RegisterUserTest.verifyThatHomePageIsVisibleSuccessfully();
+        RegisterUserTest.verifyNewUserSignupIsVisible();
         verifyErrorEmailAddressAlreadyExistIsVisible();
     }
 
-    public void verifyThatHomePageIsVisibleSuccessfully() {
-        boolean visibleHomePage = new HomePage(driver)
-                .homePageIsVisible()
-                .isDisplayed();
-        Assert.assertTrue(visibleHomePage);
-    }
-
-    public void verifyNewUserSignupIsVisible() {
-        boolean visibleNewUserSinUp = new HomePage(driver)
-                .signUpButtonClick()
-                .newUserSingUpLabelIsVisible()
-                .isDisplayed();
-        Assert.assertTrue(visibleNewUserSinUp);
-    }
+    /* Steps */
 
     public void verifyErrorEmailAddressAlreadyExistIsVisible() throws IOException, ParseException {
         String errorEmailAddressAlreadyExistIsVisible = new SignUpLoginPage(driver)

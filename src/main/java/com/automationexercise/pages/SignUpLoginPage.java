@@ -63,38 +63,40 @@ public class SignUpLoginPage {
         return errorEmailAddressAlreadyExist;
     }
 
-    public EnterAccountInformationPage fillSignUp() throws IOException, ParseException {
-        singUpName.sendKeys(JSONDataReader.createAccountData("singUpName"));
-        singUpEmail.sendKeys(JSONDataReader.createAccountData("singUpEmail"));
+    private void fillSignUp(String name, String email) {
+        singUpName.sendKeys(name);
+        singUpEmail.sendKeys(email);
         singUpBtn.click();
+    }
+
+    private void fillLogin(String login, String password) {
+        loginEmailInput.sendKeys(login);
+        loginPasswordInput.sendKeys(password);
+        loginBtn.click();
+    }
+
+    public EnterAccountInformationPage fillSignUp() throws IOException, ParseException {
+        fillSignUp(JSONDataReader.createAccountData("singUpName"), JSONDataReader.createAccountData("singUpEmail"));
         return new EnterAccountInformationPage(driver);
     }
 
     public SignUpLoginPage fillSignUpWithExistingUserLoginData() throws IOException, ParseException {
-        singUpName.sendKeys(JSONDataReader.loginData("existingUserName"));
-        singUpEmail.sendKeys(JSONDataReader.loginData("existingUserEmail"));
-        singUpBtn.click();
+        fillSignUp(JSONDataReader.loginData("existingUserName"), JSONDataReader.loginData("existingUserEmail"));
         return new SignUpLoginPage(driver);
     }
 
     public HomePage fillLoginCorrectData() throws IOException, ParseException {
-        loginEmailInput.sendKeys(JSONDataReader.loginData("correctEmail"));
-        loginPasswordInput.sendKeys(JSONDataReader.loginData("correctPassword"));
-        loginBtn.click();
+        fillLogin(JSONDataReader.loginData("correctEmail"), JSONDataReader.loginData("correctPassword"));
         return new HomePage(driver);
     }
 
     public SignUpLoginPage fillLoginIncorrectData() throws IOException, ParseException {
-        loginEmailInput.sendKeys(JSONDataReader.loginData("incorrectEmail"));
-        loginPasswordInput.sendKeys(JSONDataReader.loginData("incorrectPassword"));
-        loginBtn.click();
+        fillLogin(JSONDataReader.loginData("incorrectEmail"), JSONDataReader.loginData("incorrectPassword"));
         return new SignUpLoginPage(driver);
     }
 
     public HomePage fillLoginForAnotherAccount() throws IOException, ParseException {
-        loginEmailInput.sendKeys(JSONDataReader.loginData("existingUserEmail"));
-        loginPasswordInput.sendKeys(JSONDataReader.loginData("existingUserPassword"));
-        loginBtn.click();
+        fillLogin(JSONDataReader.loginData("existingUserEmail"), JSONDataReader.loginData("existingUserPassword"));
         return new HomePage(driver);
     }
 }
