@@ -20,7 +20,7 @@ public class VerifyAllProductsAndProductDetailPageTest extends SetupBrowser {
         8. User is landed to product detail page
         9. Verify that detail is visible: product name, category, price, availability, condition, brand
      */
-    @Test(description = "Verify All Products and product detail page")
+    @Test(description = "Test Case 8: Verify All Products and product detail page")
     public void verifyAllProductsAndProductDetailPageTest() {
         RegisterUserTest.verifyThatHomePageIsVisibleSuccessfully();
         verifyThatAllProductPageIsVisible();
@@ -30,7 +30,7 @@ public class VerifyAllProductsAndProductDetailPageTest extends SetupBrowser {
 
     /* Steps */
 
-    public void verifyThatAllProductPageIsVisible() {
+    public static void verifyThatAllProductPageIsVisible() {
         boolean visibleProductList = new HomePage(driver)
                 .productMenuBtnClick()
                 .allProductsLabel()

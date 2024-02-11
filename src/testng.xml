@@ -9,6 +9,8 @@
             <class name="com.automationexercise.tests.RegisterUserWithExistingEmailTest"></class>
             <class name="com.automationexercise.tests.ContactAsFormTest"></class>
             <class name="com.automationexercise.tests.TestCasesPageTest"></class>
+            <class name="com.automationexercise.tests.VerifyAllProductsAndProductDetailPageTest"></class>
+            <class name="com.automationexercise.tests.SearchProductTest"></class>
         </classes>
     </test>
 </suite>
