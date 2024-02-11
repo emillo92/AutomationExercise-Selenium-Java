@@ -1,14 +1,9 @@
 package com.automationexercise.pages;
 
-import com.automationexercise.tests.TestCasesPageTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HomePage {
 
@@ -39,6 +34,9 @@ public class HomePage {
 
     @FindBy(xpath = "//a[@href='/test_cases']")
     private WebElement testCasesMenuBtn;
+
+    @FindBy(xpath = "//a[@href='/products']")
+    private WebElement productsMenuBtn;
 
     public WebElement homePageIsVisible() {
         return slider;
@@ -71,5 +69,10 @@ public class HomePage {
     public TestCasesPage testCasesMenuBtnClick() {
         testCasesMenuBtn.click();
         return new TestCasesPage(driver);
+    }
+
+    public ProductsPage productMenuBtnClick() {
+        productsMenuBtn.click();
+        return new ProductsPage(driver);
     }
 }
