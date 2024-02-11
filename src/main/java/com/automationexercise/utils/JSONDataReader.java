@@ -40,4 +40,12 @@ public class JSONDataReader {
         JSONObject searchProductData = (JSONObject) obj;
         return (String)searchProductData.get(data);
     }
+
+    public static String subscribeData(String data) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader fileReader = new FileReader("src/main/resources/TestData/SubscribeData.json");
+        Object obj = jsonParser.parse(fileReader);
+        JSONObject subscribeData = (JSONObject) obj;
+        return (String)subscribeData.get(data);
+    }
 }
